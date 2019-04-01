@@ -1,5 +1,66 @@
-*node_modules*
 credits.json
-.npmignore
-.eslintrc
-*DS_Store*
+
+# babel dist
+/lib
+
+# coverage
+.nyc_output
+*.lcov
+
+# node
+*.tgz
+
+package-lock.json
+
+# Numerous always-ignore extensions
+*.bak
+*.patch
+*.diff
+*.err
+*.orig
+*.log
+*.rej
+*.swo
+*.swp
+*.zip
+*.vi
+*~
+*.sass-cache
+*.lock
+*.rdb
+*.db
+nohup.out
+
+# OS or Editor folders
+.DS_Store
+._*
+.cache
+.project
+.settings
+.tmproj
+*.esproj
+*.sublime-project
+*.sublime-workspace
+nbproject
+thumbs.db
+no-track.js
+
+# Folders to ignore
+.hg
+.svn
+.CVS
+.idea
+node_modules
+old/
+*-old/
+*-notrack/
+no-track/
+build/
+combo/
+reference/
+jscoverage_lib/
+temp/
+tmp/
+
+# codecov.io
+coverage/

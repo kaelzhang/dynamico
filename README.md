@@ -1,5 +1,7 @@
-# DynamoDB ORM
-[![Travis-ci](https://travis-ci.org/AbdullahZN/dynamo-node.svg?branch=master)](https://travis-ci.org/AbdullahZN/dynamo-node)
+[![Build Status](https://travis-ci.org/kaelzhang/node-dynamo.svg?branch=master)](https://travis-ci.org/kaelzhang/node-dynamo)
+[![Coverage](https://codecov.io/gh/kaelzhang/node-dynamo/branch/master/graph/badge.svg)](https://codecov.io/gh/kaelzhang/node-dynamo)
+
+# @ostai/dynamo
 
 This DynamoDB ORM for node.js aims to provide a beautiful, simple and complete implementation to work with dynamodb databases. You can easily select a table and start querying/writing data, from simple requests to conditional ones without prior knowledge.
 
@@ -33,12 +35,12 @@ You can either set your AWS credentials as env variables or as a JSON file
 
 Require module
 ```js
-const DynamoDB = require('dynamo-node')(region [, credit_path ]);
+const DynamoDB = require('dynamo-node')(region [, credit_path ])
 // e.g with json credentials
-const DynamoDB = require('dynamo-node')('eu-central-1', './credits.json');
+const DynamoDB = require('dynamo-node')('eu-central-1', './credits.json')
 // e.g with env vars
-process.env.DYNAMO_ENV = 'test';
-const DynamoDB = require('dynamo-node')('eu-central-1');
+process.env.DYNAMO_ENV = 'test'
+const DynamoDB = require('dynamo-node')('eu-central-1')
 ```
 
 
@@ -66,15 +68,15 @@ String  | String Set  | Number  | Number Set  | Binary  | Binary Set  | Boolean 
 
 ```js
 UserTable.createTable({
-    KeySchema: [       
+    KeySchema: [
         { AttributeName: "name", KeyType: "HASH"},  //Partition key
         { AttributeName: "uid", KeyType: "RANGE" }  //Sort key
     ],
-    AttributeDefinitions: [       
+    AttributeDefinitions: [
         { AttributeName: "uid", AttributeType: "N" },
         { AttributeName: "name", AttributeType: "S" }
     ],
-    ProvisionedThroughput: {       
+    ProvisionedThroughput: {
         ReadCapacityUnits: 10,
         WriteCapacityUnits: 10
     }
