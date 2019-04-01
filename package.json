@@ -24,7 +24,7 @@
   "scripts": {
     "lint": "eslint .",
     "fix": "eslint . --fix",
-    "test": "DYNAMO_ENV=test mocha --recursive test",
+    "test": "mocha --recursive test",
     "createTable": "node testTable create",
     "deleteTable": "node testTable delete"
   },

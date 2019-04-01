@@ -1,5 +1,10 @@
 const {assert, expect, should} = require('chai')
-const DynamoDB = require('../index')()
+const DynamoDB = require('..')({
+  apiVersion: '2012-08-10',
+  accessKeyId: 'test',
+  secretAccessKey: 'test',
+  endpoint: 'http://localhost:8000',
+})
 
 // Test Tables
 const Table = DynamoDB.select('aws.table.for.testing')

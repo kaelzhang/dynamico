@@ -1,6 +1,9 @@
-process.env.DYNAMO_ENV = 'test'
-
-const DynamoDB = require('./index')('eu-central-1')
+const DynamoDB = require('.')({
+  apiVersion: '2012-08-10',
+  accessKeyId: 'test',
+  secretAccessKey: 'test',
+  endpoint: 'http://localhost:8000',
+})
 
 const baseParams = {
   ProvisionedThroughput: {ReadCapacityUnits: 1, WriteCapacityUnits: 1},
