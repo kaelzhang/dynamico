@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.org/kaelzhang/node-dynamo.svg?branch=master)](https://travis-ci.org/kaelzhang/node-dynamo)
-[![Coverage](https://codecov.io/gh/kaelzhang/node-dynamo/branch/master/graph/badge.svg)](https://codecov.io/gh/kaelzhang/node-dynamo)
+[![Build Status](https://travis-ci.org/kaelzhang/dynamico.svg?branch=master)](https://travis-ci.org/kaelzhang/dynamico)
+[![Coverage](https://codecov.io/gh/kaelzhang/dynamico/branch/master/graph/badge.svg)](https://codecov.io/gh/kaelzhang/dynamico)
 
 # @ostai/dynamo
 
@@ -20,7 +20,7 @@ Current features:
 Install package from npm or yarn
 
 ```bash
-> npm install dynamo-node || yarn add dynamo-node
+> npm i dynamico
 ```
 
 You can either set your AWS credentials as env variables or as a JSON file
@@ -35,7 +35,7 @@ You can either set your AWS credentials as env variables or as a JSON file
 
 Require module
 ```js
-const DynamoDB = require('@ostai/dynamo')({
+const DynamoDB = require('dynamico')({
   region: 'eu-central-1'
 })
 ```
@@ -353,7 +353,7 @@ UserTable.add({ name: "Chris", age: "65" })
 
 Tests are located in the **./tests** folder
 
-To run tests or to start working with dynamo-node, you should run a local dynamodb database
+To run tests or to start working with dynamico, you should run a local dynamodb database
 
 Here is the quickest process to setup a local dynamodb database
 
@@ -383,13 +383,5 @@ $ node testTable delete
 
 Run tests
 ```bash
-> npm run test || yarn test
-```
-
-#### Environment
-
-You need to set up a specific envvar to start development with dynamo-node and a local dynamo db
-
-```js
-process.env.DYNAMO_ENV = 'test';
+> npm test || yarn test
 ```
