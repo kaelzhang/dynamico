@@ -3,25 +3,11 @@ const ConditionalQueryBuilder = require('./lib/ConditionalQueryBuilder')
 
 const getPromise = func => (method, params) =>
   new Promise((resolve, reject) => {
-    if (method === 'scan') {
-      let allData = []
-      const onScan = (err, data) => {
-        if (err) {
-          reject(err)
-        } else {
-          allData = allData.concat(data.Items)
-          if (typeof data.LastEvaluatedKey !== 'undefined') {
-            params.ExclusiveStartKey = data.LastEvaluatedKey
-            func[method](params, onScan)
-          } else {
-            resolve(allData)
-          }
-        }
-      }
-      func[method](params, onScan)
-    } else {
-      func[method](params, (err, data) => (err ? reject(err) : resolve(data)))
-    }
+    func[method](params, (err, data) => {
+      err
+        ? reject(err)
+        : resolve(data)
+    })
   })
 
 // Exports DynamoDB function that returns an object of methods
