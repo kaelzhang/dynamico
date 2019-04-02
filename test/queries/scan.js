@@ -10,7 +10,7 @@ describe('#scan', () => {
     // truthy
     const t = await Table.where('name', 'contains', 'can').scan()
     // falsy
-    const f = await Table.where('name', 'beginsWith', 't').scan()
+    const f = await Table.where('name', 'beginsWith', 'x').scan()
 
     assert.propertyVal(t, 'Count', 2) // scan and scanAll
     assert.propertyVal(f, 'Count', 0)
