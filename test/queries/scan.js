@@ -12,7 +12,7 @@ describe('#scan', () => {
     // falsy
     const f = await Table.where('name', 'beginsWith', 't').scan()
 
-    assert.propertyVal(t, 'Count', 1)
+    assert.propertyVal(t, 'Count', 2) // scan and scanAll
     assert.propertyVal(f, 'Count', 0)
   })
 

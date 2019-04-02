@@ -43,6 +43,19 @@ const scanAll = (host, params, callback, prev = defaultScannedData()) => {
   })
 }
 
+const noLimit = params => {
+  if ('Limit' in params) {
+    const ret = {
+      ...params
+    }
+
+    delete ret.Limit
+    return ret
+  }
+
+  return params
+}
+
 const promisify = host => (method, params) =>
   new Promise((resolve, reject) => {
     const callback = (err, data) => {
@@ -52,7 +65,7 @@ const promisify = host => (method, params) =>
     }
 
     if (method === 'scanAll') {
-      return scanAll(host, params, callback)
+      return scanAll(host, noLimit(params), callback)
     }
 
     host[method](params, callback)
