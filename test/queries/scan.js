@@ -1,18 +1,18 @@
 const {assert, Table} = require('../test_helpers')
 
 describe('#scan', () => {
-  before('add item', () => Table.add({name: 'scan'}))
+  before('add item', () => Table.add({name: 'scanPaginate'}))
 
   it('works without params', () => Table.scan())
   it('works with projections', () => Table.project(['name']).scan())
 
   it('works with conditionals', async () => {
     // truthy
-    const t = await Table.where('name', 'contains', 'can').scan()
+    const t = await Table.where('name', 'contains', 'scanPaginate').scan()
     // falsy
     const f = await Table.where('name', 'beginsWith', 'x').scan()
 
-    assert.propertyVal(t, 'Count', 2) // scan and scanAll
+    assert.propertyVal(t, 'Count', 1) // scan and scanAll
     assert.propertyVal(f, 'Count', 0)
   })
 
