@@ -1,6 +1,6 @@
 {
   "name": "dynamico",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "most handy DynamoDB mapper yet",
   "main": "index.js",
   "directories": {

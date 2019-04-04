@@ -15,7 +15,7 @@ Current features:
 
 This is a **fork** of [`dynamo-node`](https://www.npmjs.com/package/dynamo-node) with additional features below:
 
-- adds `scanAll` method to paginating the scan results
+- adds `scanAll` method to handle [pagination of the scan results](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Scan.html#Scan.Pagination)
 - fixes credentials
 
 ## Requirements
