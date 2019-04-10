@@ -1,5 +1,6 @@
 const {assert, expect, should} = require('chai')
 const DynamoDB = require('..')({
+  region: 'ap-northeast-1',
   apiVersion: '2012-08-10',
   accessKeyId: 'test',
   secretAccessKey: 'test',

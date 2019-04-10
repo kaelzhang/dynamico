@@ -73,10 +73,7 @@ const promisify = host => (method, params) =>
 
 // Exports DynamoDB function that returns an object of methods
 module.exports = conf => {
-  AWS.config.update({
-    region: 'ap-northeast-1',
-    ...conf
-  })
+  AWS.config.update(conf)
 
   AWS.CredentialProviderChain.defaultProviders = [
     () => new AWS.EnvironmentCredentials('AWS'),
